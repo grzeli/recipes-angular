@@ -6,3 +6,10 @@ export enum ErrorMessage {
     InvalidPassword = 'INVALID_PASSWORD',
     UserDisabled = 'USER_DISABLED',
 }
+
+export interface UserData {
+    email: string;
+    id: string;
+    _token: string;
+    _tokenExpirationDate: string;
+}
