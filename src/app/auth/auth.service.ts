@@ -94,7 +94,7 @@ export class AuthService {
       localStorage.setItem('userData', JSON.stringify(user));
     }
 
-    private errorHandler(errorRes: HttpErrorResponse) { //zmienilem to
+    private errorHandler(errorRes: HttpErrorResponse) {
       let errorMessage = 'An error occurred!';
       const errorType = ErrorMessage;
 
@@ -106,7 +106,7 @@ export class AuthService {
             errorMessage = 'There is no user record corresponding to this identifier. The user may have been deleted!';
             break;
           case errorType.OperationNotAllowed:
-            errorMessage = 'The password is invalid or the user does not have a password';
+            errorMessage = 'Password sign-in is disabled for this project';
             break;
           case errorType.TooManyAttempts:
             errorMessage = 'The user account has been disabled by an administrator.';
@@ -115,7 +115,7 @@ export class AuthService {
             errorMessage = 'This email already exists!';
             break;
           case errorType.InvalidPassword:
-            errorMessage = 'Password sign-in is disabled for this project';
+            errorMessage = 'The password is invalid or the user does not have a password';
             break;
           case errorType.UserDisabled:
             errorMessage = 'We have blocked all requests from this device due to unusual activity. Try again later.';

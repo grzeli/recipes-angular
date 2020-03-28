@@ -1,8 +1,14 @@
+<ng-template appPlaceholder ></ng-template>
 <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="alert alert-danger" *ngIf="!!error">
+        <!-- <div class="alert alert-danger" *ngIf="!!error">
             <p>{{error}}</p>
-        </div>
+        </div> -->
+        <!-- <app-alert
+            *ngIf="error"
+            [messageToThePeople]="error"
+            (close)="onHandleError()"
+        ></app-alert> -->
         <div class="center-block text-center">
             <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
         </div>
@@ -15,6 +21,7 @@
                     class="form-control"
                     ngModel
                     name="email"
+                    autocomplete="on"
                     required
                     email
                 >
@@ -24,6 +31,7 @@
                 <input
                     type="password"
                     id="password"
+                    autocomplete="on"
                     class="form-control"
                     ngModel
                     name="password"
