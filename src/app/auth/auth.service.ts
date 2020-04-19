@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { ErrorMessage, UserData } from './auth-helpers';
-import { throwError, Subject, BehaviorSubject } from 'rxjs';
+import { throwError, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 export interface AuthResponseData {
     kind: string;
@@ -21,7 +22,6 @@ export class AuthService {
     user = new BehaviorSubject<User>(null);
     token: string = null;
 
-    private readonly apiKey = 'AIzaSyCt_B6LKKLCM1WrSktQrV0t_yNMGdMdFDc';
     private tokenExpirationTimer: any;
 
     constructor(
@@ -30,7 +30,7 @@ export class AuthService {
     ) {}
 
     signUp(email: string, password: string) {
-        return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`,
+        return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.API_KEY}`,
             {
                 email,
                 password,
@@ -43,7 +43,7 @@ export class AuthService {
     }
 
     login(email: string, password: string) {
-      return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`,
+      return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.API_KEY}`,
         {
           email,
           password,

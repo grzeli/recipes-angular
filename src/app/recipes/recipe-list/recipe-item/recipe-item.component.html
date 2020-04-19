@@ -1,17 +1,15 @@
-<a
-  style="cursor: pointer;"
-  [routerLink]="[index]"
-  routerLinkActive="active"
-  class="list-group-item clearfix">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <p class="list-group-item-text">{{ recipe.description }}</p>
-  </div>
-  <span class="pull-right">
-        <img
-          [src]="recipe.imagePath"
-          alt="{{ recipe.name }}"
-          class="img-responsive"
-          style="max-height: 50px;">
-      </span>
-</a>
+<div class="col-xs-12 col-md-6 col-lg-4 recipe-element">
+    <img
+        [src]="recipe.imagePath"
+        alt="{{ recipe.name }}"
+        class="img-responsive recipe-element__img"
+        [routerLink]="[index]"
+        routerLinkActive="active"
+    >
+    <div class="recipe-element__data">
+        <p class="list-group-item-text">{{ recipe.description }}</p>
+    </div>
+    <div class="recipe-element__title">
+      <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+    </div>
+</div>
