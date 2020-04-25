@@ -4,8 +4,8 @@ import { Subscription, Observable } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 // import { ShoppingListService } from './shopping-list.service';
 import { Store } from '@ngrx/store';
-import { AppState } from './store/store-helpers.component';
 import * as ShoppingListActions from './store/shopping-list.actions';
+import { AppState } from '../statics/interfaces.component';
 
 @Component({
   selector: 'app-shopping-list',

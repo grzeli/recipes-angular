@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { ErrorMessage, UserData } from './auth-helpers';
+import { ErrorMessage } from './auth-helpers';
 import { throwError, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { UserData } from '../statics/interfaces.component';
 
 export interface AuthResponseData {
     kind: string;

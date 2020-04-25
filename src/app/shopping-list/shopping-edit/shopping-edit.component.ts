@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 import { Ingredient } from '../../shared/ingredient.model';
 // import { ShoppingListService } from '../shopping-list.service';
 import * as ShoppingListActions from '../store/shopping-list.actions';
-import { AppState } from '../store/store-helpers.component';
+import { AppState } from 'src/app/statics/interfaces.component';
 
 @Component({
   selector: 'app-shopping-edit',

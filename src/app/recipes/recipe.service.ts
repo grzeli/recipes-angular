@@ -5,8 +5,8 @@ import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { AppState } from '../statics/interfaces.component';
 // import { ShoppingListService } from '../shopping-list/shopping-list.service';
-import { AppState } from '../shopping-list/store/store-helpers.component';
 
 @Injectable()
 export class RecipeService {
