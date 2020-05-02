@@ -3,6 +3,8 @@ import { Ingredient } from '../shared/ingredient.model';
 
 export interface AuthState {
     user: User;
+    authError: string;
+    loading: boolean;
 }
 
 export interface UserData {

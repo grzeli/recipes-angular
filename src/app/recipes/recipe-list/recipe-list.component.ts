@@ -5,6 +5,9 @@ import { Subscription } from 'rxjs';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { AppState } from 'src/app/statics/interfaces.component';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recipe-list',
@@ -23,13 +26,18 @@ export class RecipeListComponent implements OnInit, OnDestroy {
               private router: Router,
               private route: ActivatedRoute,
               private authService: AuthService,
+              private store: Store<AppState>
   ) {
   }
 
   ngOnInit() {
-    this.authSubs = this.authService.user.subscribe(user => {
-      this.isAuthenticated = !!user;
-    });
+    this.authSubs = this.store.select('auth')
+      .pipe(
+        map(authState => authState.user)
+      )
+      .subscribe(user => {
+        this.isAuthenticated = !!user;
+      });
     this.subscription = this.recipeService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
