@@ -6,8 +6,6 @@ import { Store } from '@ngrx/store';
 
 import { Recipe } from '../recipe.model';
 import { AppState } from 'src/app/statics/interfaces.component';
-// import { RecipeService } from '../recipe.service';
-// import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -22,10 +20,8 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
 
   constructor(
-              // private recipeService: RecipeService,
               private router: Router,
               private route: ActivatedRoute,
-              // private authService: AuthService,
               private store: Store<AppState>
   ) {
   }
@@ -45,13 +41,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       )
       .subscribe((recipes: Recipe[]) => this.recipes = recipes)
     );
-    // this.subscription = this.recipeService.recipesChanged
-    //   .subscribe(
-    //     (recipes: Recipe[]) => {
-    //       this.recipes = recipes;
-    //     }
-    //   );
-    // this.recipes = this.recipeService.getRecipes();
   }
 
   onNewRecipe() {

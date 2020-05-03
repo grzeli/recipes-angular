@@ -11,12 +11,10 @@ import * as AuthActions from '../app/auth/store/auth.actions';
 })
 export class AppComponent implements OnInit {
   constructor(
-    // private authService: AuthService,
     private store: Store<AppState>
     ) {}
 
   ngOnInit() {
-    // this.authService.autoLogin();
     this.store.dispatch(new AuthActions.AutoLogin());
   }
 }
