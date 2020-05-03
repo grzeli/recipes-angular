@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
 import { Recipe } from '../recipes/recipe.model';
 import { RecipeService } from '../recipes/recipe.service';
 import { AuthService } from '../auth/auth.service';
+import { AppState } from '../statics/interfaces.component';
+import * as RecipeActions from '../recipes/store/recipe.actions';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
@@ -12,6 +15,7 @@ export class DataStorageService {
       private http: HttpClient,
       private recipeService: RecipeService,
       private authService: AuthService,
+      private store: Store<AppState>
       ) {}
 
   storeRecipes() {
@@ -21,9 +25,7 @@ export class DataStorageService {
         'https://ng-recipes-book-2ab12.firebaseio.com/recipes.json',
         recipes
       )
-      .subscribe(response => {
-        console.log(response);
-      });
+      .subscribe();
   }
 
   fetchRecipes() {
@@ -40,7 +42,8 @@ export class DataStorageService {
           });
         }),
         tap(recipes => {
-          this.recipeService.setRecipes(recipes);
+          // this.recipeService.setRecipes(recipes);
+          this.store.dispatch(new RecipeActions.SetRecipes(recipes));
         })
     );
   }

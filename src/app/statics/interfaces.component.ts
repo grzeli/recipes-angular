@@ -1,5 +1,6 @@
 import { User } from '../auth/user.model';
 import { Ingredient } from '../shared/ingredient.model';
+import { Recipe } from '../recipes/recipe.model';
 
 export interface AuthState {
     user: User;
@@ -23,4 +24,9 @@ export interface ShoppingListState {
 export interface AppState {
     shoppingList: ShoppingListState;
     auth: AuthState;
+    recipes: RecipeState;
+}
+
+export interface RecipeState {
+    recipes: Recipe[];
 }
