@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
-import { ErrorMessage } from '../auth-helpers';
+import { ErrorMessage } from '../auth.helpers';
 import { User } from '../user.model';
 import { UserData } from 'src/app/statics/interfaces.component';
 
