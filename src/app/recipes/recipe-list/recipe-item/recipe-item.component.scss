@@ -2,7 +2,12 @@
     position: relative;
     cursor: pointer;
     padding: 0;
-    margin: 20px;
+    @media (min-width: 721px) {
+        margin: 20px;
+    }
+    @media (max-width: 720px) {
+        margin: 20px 0;
+    }
     padding-bottom: 30px;
     height: 300px;
     box-shadow: 0px 3px 5px rgb(201, 185, 185);
