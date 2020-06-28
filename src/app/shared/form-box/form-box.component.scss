@@ -1,0 +1,15 @@
+.form__label--caveat {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height:30px;
+}
+
+*, input, select, textarea, option, button {
+    outline: none!important;
+}

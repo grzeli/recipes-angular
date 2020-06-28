@@ -26,7 +26,6 @@ const handleAuthentication = (resData) => {
             userId: resData.localId,
             token: resData.idToken,
             expirationDate,
-            redirect: true,
         }
     );
 };
@@ -114,7 +113,7 @@ export class AuthEffects {
             const loadedUser = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate));
 
             if (loadedUser.token) {
-              // this.user.next(loadedUser);
+
               const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
               this.authService.setLogoutTimer(expirationDuration);
               return new AuthActions.AuthenticateSuccess({
@@ -122,10 +121,7 @@ export class AuthEffects {
                   userId: userData.id,
                   token: userData._token,
                   expirationDate: new Date(userData._tokenExpirationDate),
-                  redirect: false,
             });
-            //   const expirationDuration = new Date(userData._tokenExpirationDate).getTime() - new Date().getTime();
-            //   this.autoLogout(expirationDuration);
             }
             return { type: 'not valid' };
         })
@@ -146,11 +142,6 @@ export class AuthEffects {
             AuthActions.AUTHENTICATE_SUCCESS,
             AuthActions.LOGOUT,
         ),
-        tap((authSuccessAction: AuthActions.AuthenticateSuccess) => {
-            if (authSuccessAction.payload.redirect) {
-                this.router.navigate(['/']);
-            }
-        })
     );
 
     constructor(

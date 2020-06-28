@@ -1,0 +1,18 @@
+.nav {
+    &--text-option {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        margin: 0;
+        padding: 15px;
+        color: #777;
+        &:hover,
+        &:active {
+            color: #333;
+        }
+    }
+}
+
+*, input, select, textarea, option, button {
+    outline: none!important;
+}

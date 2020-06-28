@@ -1,0 +1,39 @@
+<div
+  *ngIf="options"
+  [formGroup]="formGroup"
+  class="form__box {{options.customClass}} {{formSubmitted && formGroup.controls[formControlNameValue].errors ? 'form__error': ''}} {{formSubmitted && !formGroup.controls[formControlNameValue].errors ? 'form__valid': ''}} {{options.disabled ? 'form__box--disabled' : ''}}">
+  <div *ngIf="options.label" class="form__label" [class.form__label--caveat]="options.caveat" [ngClass]="removable ? 'form__label--with-icon' : ''">
+   <span>
+    {{options.label}}
+     <!-- <app-tooltip *ngIf="options.tooltip"
+                  [ngClass]="'tooltip__wrapper'"
+                  [text]="options.tooltipInfo"
+                  [customIconClass]="'tooltip--small'">
+     </app-tooltip> -->
+   </span>
+   <!-- <svg-icon
+    *ngIf="removable"
+    class="form__label__delete-icon"
+    [icon]="'delete'"
+    (click)="onDelete()"
+   ></svg-icon> -->
+  </div>
+    <input *ngIf="options.fieldType === 'input'"
+        [formControlName]="formControlNameValue"
+        [id]="options.name"
+        [name]="options.name"
+        [placeholder]="options.placeholder"
+        [type]="options.type"
+        [readonly]="options.readonly"
+        [maxlength]="options.maxlength"
+        autocomplete="on"
+        class="form__input
+        {{formSubmitted && formGroup.controls[formControlNameValue].errors ? 'form__error': ''}}
+        {{ options.insideLabel ? 'form__input--with-in-label' : '' }}
+        {{ options.isDecimalInput ? 'form__input--with-decimal-buttons' : ''}}"
+        tabindex="{{options.tab}}"
+        (input)="inputValueChange($event.target.value)"
+        (focusOnInit)="focusField()"
+        #fieldRef
+    >
+</div>

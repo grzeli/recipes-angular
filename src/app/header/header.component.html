@@ -28,10 +28,16 @@
                     </a>
                 </li>
                 <li
-                    routerLinkActive="active"
                     *ngIf="!isAuthenticated"
+                    (click)="loginModalHandler(modalParams.Login)"
                 >
-                    <a routerLink="/auth">Login</a>
+                    <button class="nav--text-option">Login</button>
+                </li>
+                <li
+                    *ngIf="!isAuthenticated"
+                    (click)="loginModalHandler(modalParams.Register)"
+                >
+                    <button class="nav--text-option">Register</button>
                 </li>
                 <li
                     class="dropdown"
@@ -61,3 +67,8 @@
         </div>
     </div>
 </nav>
+<app-auth
+    *ngIf="showLoginModal && !isAuthenticated"
+    [isLoginMode]="isLoginMode"
+    (clickedOutside)="onClickOutside()"
+></app-auth>

@@ -15,11 +15,14 @@ import { appReducer } from './store/app.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
 import { environment } from 'src/environments/environment';
 import { RecipeEffects } from './recipes/store/recipe.effects';
+import { AuthComponent } from './auth/auth.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { RecipeEffects } from './recipes/store/recipe.effects';
     StoreRouterConnectingModule.forRoot(),
     SharedModule,
     CoreModule,
+    ClickOutsideModule,
   ],
   bootstrap: [AppComponent],
 })
