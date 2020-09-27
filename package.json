@@ -23,6 +23,7 @@
     "@ngrx/router-store": "^9.1.0",
     "@ngrx/store": "^9.1.0",
     "@nguniversal/express-engine": "^8.2.6",
+    "angular-svg-icon": "^8.0.0",
     "bootstrap": "3.3.7",
     "core-js": "^3.6.5",
     "firebase-tools": "^7.16.2",

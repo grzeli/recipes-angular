@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -35,6 +36,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     SharedModule,
     CoreModule,
     ClickOutsideModule,
+    AngularSvgIconModule.forRoot()
   ],
   bootstrap: [AppComponent],
 })

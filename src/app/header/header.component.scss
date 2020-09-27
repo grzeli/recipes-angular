@@ -1,4 +1,8 @@
 .nav {
+    &.navbar-nav {
+        margin-left: 140px;
+    }
+
     &--text-option {
         border: none;
         outline: none;
@@ -13,6 +17,44 @@
     }
 }
 
-*, input, select, textarea, option, button {
-    outline: none!important;
+nav.navbar {
+    margin-top: 60px;
+    a {
+        color: #c29f48;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 28px;
+
+        &.nabar-brand {
+            font-size: 32px;
+        }
+    }
 }
+
+.collapse.navbar-collapse {
+    .form--search {
+        // display: none;
+        padding-top: 8px;
+        input:focus {
+            border-color: #ccc;
+            box-shadow: initial;
+        }
+        &.active {
+            .btn--icon {
+                background-color: #fff;
+            }
+        }
+        .btn {
+            &--icon {
+                padding: 0;
+                margin: 0;
+                width:24px;
+                height:24px;
+                background-color: transparent;
+                margin-left: -28px;
+            }
+        }
+    }
+}
+
+
