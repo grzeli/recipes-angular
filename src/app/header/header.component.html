@@ -18,10 +18,18 @@
                     <a routerLink="/shopping-list">Shopping List</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 form--search active">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success btn--icon my-2 my-sm-0" type="submit">
-                    <svg-icon src="../../assets/search.svg" [svgStyle]="{ 'width.px': 24, 'fill': '#c29f48', 'height.px': 24, 'cursor': 'pointer', 'background-color':'#fff' }"></svg-icon>
+            <form class="form-inline my-2 my-lg-0 form--search" [ngClass]="{'active': showSearch}" (clickOutside)="showSearch = false">
+                <input
+                    class="form-control mr-sm-2"
+                    type="search" placeholder="Search"
+                    aria-label="Search"
+                >
+                <button
+                    class="btn btn-outline-success btn--icon my-2 my-sm-0"
+                    type="button"
+                    (click)="searchButtonClicked($event)"
+                >
+                    <svg-icon src="../../assets/search.svg" [svgStyle]="{ 'width.px': 24, 'fill': '#c29f48', 'height.px': 24, 'cursor': 'pointer' }"></svg-icon>
                 </button>
             </form>
             <ul class="nav navbar-nav navbar-right">

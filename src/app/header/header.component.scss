@@ -1,6 +1,12 @@
 .nav {
     &.navbar-nav {
         margin-left: 140px;
+        a {
+            &:focus,
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 
     &--text-option {
@@ -33,17 +39,30 @@ nav.navbar {
 
 .collapse.navbar-collapse {
     .form--search {
-        // display: none;
-        padding-top: 8px;
-        input:focus {
-            border-color: #ccc;
-            box-shadow: initial;
-        }
-        &.active {
-            .btn--icon {
-                background-color: #fff;
+        padding-top: 10px;
+
+        input {
+            display: none;
+            max-width: 200px;
+            padding-right: 32px;
+            &:focus {
+                border-color: #ccc;
+                box-shadow: initial;
             }
         }
+
+        &.active {
+            display: inline-block;
+
+            input {
+                display: inherit;
+            }
+
+            .btn--icon {
+                margin-left: -32px;
+            }
+        }
+
         .btn {
             &--icon {
                 padding: 0;
@@ -51,9 +70,21 @@ nav.navbar {
                 width:24px;
                 height:24px;
                 background-color: transparent;
-                margin-left: -28px;
+                box-shadow: none;
             }
         }
+    }
+}
+
+.navbar-right {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    button {
+        color: #c29f48;
     }
 }
 

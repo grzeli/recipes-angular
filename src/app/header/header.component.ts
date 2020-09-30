@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   authSubs: Subscription;
 
+  showSearch: boolean;
+
   readonly modalParams = ModalParams;
   constructor(
     private store: Store<AppState>
@@ -67,6 +69,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.isLoginMode = false;
         this.showLoginModal = true;
         break;
+    }
+  }
+
+  searchButtonClicked(event: MouseEvent) {
+    event.preventDefault();
+    if (!this.showSearch) {
+      this.showSearch = true;
+    } else {
+
     }
   }
 }
